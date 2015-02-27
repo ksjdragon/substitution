@@ -21,20 +21,20 @@ document.documentElement.innerHTML
 	.replace(/Democratic Party/g, "Elephants")
 	.replace(/Republican Party/g, "Donkeys")
 	.replace(/Democratic-Donkeys/g, "Elephant-Donkeys");*/
-var wordsReplacee = [];
+var wordsReplaced = [];
 var wordsReplacer = [];
 
-var test = "witnesses, these dudes I know\nallegedly, kinda probably\npresident, garbage man\ngive, gib"; 
+var test = "witnesses,these dudes I know\nallegedly,kinda probably\npresident,garbage man\ngive,gib"; 
 //^ this is where we reference the reading of file
 var file = test.split(/[\n,]/);
 
 for( var i = 0; i < file.length ; i+=2 ) {
- 	wordsReplacee.push(file[i]);
+ 	wordsReplaced.push(file[i]);
  	wordsReplacer.push(file[i+1]);
 }
 
-for( var a = 0; a < wordsReplacee.length; a++ ) {
-	var reg = new RegExp(wordsReplacee[a], "gi");
+for( var a = 0; a < wordsReplaced.length; a++ ) {
+	var reg = new RegExp(wordsReplaced[a], "gi");
 	if (a === 0) {
 		var htmlReplaced = document.documentElement.innerHTML.replace(reg, wordsReplacer[a]);
 	} else {
