@@ -1,4 +1,4 @@
-document.documentElement.innerHTML = 
+/*document.documentElement.innerHTML = 
 document.documentElement.innerHTML
 	.replace(/witnesses/g, "these dudes I know")
 	.replace(/allegedly/g, "kinda probably")
@@ -20,5 +20,27 @@ document.documentElement.innerHTML
 	.replace(/radioactive/g, "kinda dangerous")
 	.replace(/Democratic Party/g, "Elephants")
 	.replace(/Republican Party/g, "Donkeys")
-	.replace(/Democratic-Donkeys/g, "Elephant-Donkeys");
-	//add all
+	.replace(/Democratic-Donkeys/g, "Elephant-Donkeys");*/
+var html = document.documentElement.innerHTML;
+var wordsReplacee = [];
+var wordsReplacer = [];
+
+var test = "witnesses these dudes I know\nallegedly kinda probably\npresident garbage man\ngive gib"; 
+//^ this is where we reference the reading of file
+var file = test.split(/[\s]/);
+
+for( var i = 0; i < file.length ; i+=2 ) {
+ 	wordsReplacee.push(file[i]);
+ 	wordsReplacer.push(file[i+1]);
+	console.log(wordsReplacee);
+	console.log(wordsReplacer);
+}
+
+for( var a = 0; a < wordsReplacee.length; a++ ) {
+	var reg = new RegExp(wordsReplacee[a], "gi");
+	if (a = 0) {
+		htmlReplaced = html.replace(reg, wordsReplacer);
+	} else {
+		htmlReplaced = htmlReplaced.replace(reg, wordsReplacer);
+	}
+}

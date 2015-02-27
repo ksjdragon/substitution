@@ -1,6 +1,6 @@
 {
   "name": "Substitution",
-  "version": "1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "Replaces words for amusement.",
   "homepage_url": "http://extensionizr.com",
@@ -19,7 +19,7 @@
   "options_page": "src/options/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "browser action demo"
+    "default_title": "Substitute?"
   },
   "permissions": [
     "https://*/*",
