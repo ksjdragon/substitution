@@ -31,7 +31,7 @@ String.prototype.replaceAt=function(index, character) {
 };
 //value of test is temporary
 //TODO ADD IMPORTING OF FILE 
-var test = "witnesses,these dudes I know\nallegedly,kinda probably\npresident,garbage man\ngive,gib"; 
+var test = "witnesses,these dudes I know\nallegedly,kinda probably\npresident,garbage man\ngive,gib\ngave,gibbed\nmake,mak\nmade,mak-ed\nDemocratic Party,Elephants\nRepublican Party,Donkey\nelection,eating contest"; 
 var file = test.split(/[\n,]/);
 
 for( var i = 0; i < file.length ; i+=2 ) {
