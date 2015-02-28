@@ -19,7 +19,7 @@
   "options_page": "src/options/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "Substitute?"
+    "default_title": "Substitute"
   },
   "permissions": [
     "https://*/*",

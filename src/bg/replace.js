@@ -1,5 +1,6 @@
-/*document.documentElement.innerHTML = 
-document.documentElement.innerHTML
+/*
+	document.documentElement.innerHTML = 
+	document.documentElement.innerHTML
 	.replace(/witnesses/g, "these dudes I know")
 	.replace(/allegedly/g, "kinda probably")
 	.replace(/new study/g, "tumblr post")
@@ -20,17 +21,15 @@ document.documentElement.innerHTML
 	.replace(/radioactive/g, "kinda dangerous")
 	.replace(/Democratic Party/g, "Elephants")
 	.replace(/Republican Party/g, "Donkeys")
-	.replace(/Democratic-Donkeys/g, "Elephant-Donkeys");*/
+	.replace(/Democratic-Donkeys/g, "Elephant-Donkeys");
+	*/
 var html = document.documentElement.innerHTML;
 var wordsReplaced = [];
 var wordsReplacer = [];
-String.prototype.replaceAt=function(index, character) {
-    return this.substr(0, index) + character + this.substr(index+character.length);
-};
-var test = "witnesses,these dudes I know\nallegedly,kinda probably\npresident,garbage man\ngive,gib"; 
-//^ this is where we reference the reading of file
+
 //value of test is temporary
 //TODO ADD IMPORTING OF FILE 
+var test = "witnesses,these dudes I know\nallegedly,kinda probably\npresident,garbage man\ngive,gib"; 
 var file = test.split(/[\n,]/);
 
 for( var i = 0; i < file.length ; i+=2 ) {
@@ -49,11 +48,12 @@ for( var a = 0; a < wordsReplaced.length; a++ ) {
 
 for(var b = 0; b < wordsReplaced.length; b++) {
     var reg2 = new RegExp(wordsReplaced[b], "gi");
-	var amountFound = html.match(reg2);
 	if(html.match(reg2) !== null) {
+		var amountFound = html.match(reg2);
 	    var reg3 = new RegExp(wordsReplacer[b], "g");
-	    var match, indexes= [];
-        while (match= reg3.exec(htmlReplaced)) {
+	    var match;
+	    var indexes = [];
+        while (match = reg3.exec(htmlReplaced)) {
                  indexes.push([match.index, match.index+match[0].length]);
             }
 	    for(var c = 0; c < amountFound.length; c++) {
