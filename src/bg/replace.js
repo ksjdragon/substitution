@@ -48,21 +48,21 @@ for( var a = 0; a < wordsReplaced.length; a++ ) {
 }
 
 for(var b = 0; b < wordsReplaced.length; b++) {
-	var amountFound = html.match(reg);
-	for(var c = 0; c < amountFound.length; c++) {
-		var reg2pattern = "([^" + wordsReplaced[b] + "]*" + wordsReplaced[b] + "){" + c + "}";
-		var reg2 = new RegExp(reg2pattern, "i");	
-		if (html.match(reg2) !== null && amountFound[c][0] === amountFound[c][0].toUpperCase()) {
-			var reg3 = new RegExp(wordsReplacer[])	
-				
-			var getIndex = htmlReplaced.match(reg3)[0].length - wordsReplacer[d].length;
-			var changeCase = htmlReplaced[getIndex].toUpperCase();
-			htmlReplaced = htmlReplaced.replaceAt(getIndex, changeCase);
-		
-	
-	
-	}
-	}
+    var reg2 = new RegExp(wordsReplaced[b], "gi");
+	var amountFound = html.match(reg2);
+	if(html.match(reg2) !== null) {
+	    var reg3 = new RegExp(wordsReplacer[b], "g");
+	    var match, indexes= [];
+        while (match= reg3.exec(htmlReplaced)) {
+                 indexes.push([match.index, match.index+match[0].length]);
+            }
+	    for(var c = 0; c < amountFound.length; c++) {
+		    if (amountFound[c][0] === amountFound[c][0].toUpperCase()) {
+			    var changeCase = htmlReplaced[indexes[c][0]].toUpperCase();
+			    htmlReplaced = htmlReplaced.replaceAt(indexes[c][0], changeCase);
+    	    }   
+	    }
+    }
 }
 	
 document.documentElement.innerHTML = htmlReplaced;
