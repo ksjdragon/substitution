@@ -26,7 +26,9 @@
 var html = document.documentElement.innerHTML;
 var wordsReplaced = [];
 var wordsReplacer = [];
-
+String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
+};
 //value of test is temporary
 //TODO ADD IMPORTING OF FILE 
 var test = "witnesses,these dudes I know\nallegedly,kinda probably\npresident,garbage man\ngive,gib"; 
@@ -57,12 +59,18 @@ for(var b = 0; b < wordsReplaced.length; b++) {
                  indexes.push([match.index, match.index+match[0].length]);
             }
 	    for(var c = 0; c < amountFound.length; c++) {
-		    if (amountFound[c][0] === amountFound[c][0].toUpperCase()) {
+			if (amountFound[c] === amountFound[c].toUpperCase()) {
+    	    	for(var d = indexes[c][0]; d < indexes[c][1]; d++) {
+    	    		var changeCase = htmlReplaced[d].toUpperCase();
+    	    		htmlReplaced = htmlReplaced.replaceAt(d, changeCase);
+    	    	}
+    	    } else if (amountFound[c][0] === amountFound[c][0].toUpperCase()) {
 			    var changeCase = htmlReplaced[indexes[c][0]].toUpperCase();
 			    htmlReplaced = htmlReplaced.replaceAt(indexes[c][0], changeCase);
-    	    }   
-	    }
-    }
+    	    }	
+    	}  
+	}
 }
+
 	
 document.documentElement.innerHTML = htmlReplaced;
